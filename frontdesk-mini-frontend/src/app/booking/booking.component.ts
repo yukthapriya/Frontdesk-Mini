@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Service, Slot } from '../models';
 
@@ -63,7 +63,7 @@ import { Service, Slot } from '../models';
 
           <label>Your name</label>
           <input formControlName="customerName" />
-          @if (step3.controls.customerName.touched && step3.controls.customerName.invalid) {
+          @if (step3.controls['customerName'].touched && step3.controls['customerName'].invalid) {
             <small class="err">Name is required.</small>
           }
 
@@ -110,17 +110,22 @@ export class BookingComponent implements OnInit {
   confirmed = false;
   error = '';
 
-  step1 = this.fb.group({
-    serviceId: ['', Validators.required],
-    date: ['', Validators.required],
-  });
+  // Declared here, but built in the constructor below. With Angular's
+  // useDefineForClassFields, field initializers run BEFORE the constructor,
+  // so `this.fb` would not exist yet if we built the forms inline here.
+  step1: FormGroup;
+  step3: FormGroup;
 
-  step3 = this.fb.group({
-    customerName: ['', Validators.required],
-    customerPhone: ['', Validators.required],
-  });
-
-  constructor(private api: ApiService, private fb: FormBuilder) {}
+  constructor(private api: ApiService, private fb: FormBuilder) {
+    this.step1 = this.fb.group({
+      serviceId: ['', Validators.required],
+      date: ['', Validators.required],
+    });
+    this.step3 = this.fb.group({
+      customerName: ['', Validators.required],
+      customerPhone: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.api.getServices().subscribe((s) => (this.services = s));
