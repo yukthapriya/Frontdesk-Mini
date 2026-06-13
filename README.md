@@ -9,7 +9,7 @@ Real-time appointment scheduling and front-of-house operations for service busin
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)
 ![Socket.io](https://img.shields.io/badge/Socket.io-realtime-010101?logo=socketdotio&logoColor=white)
 
-**Live demo:** _deploy the frontend, then paste its Render URL here_ · **Source:** https://github.com/yukthapriya/Frontdesk-Mini
+**Live demo:** https://frontdesk-mini.onrender.com · **Source:** https://github.com/yukthapriya/Frontdesk-Mini
 
 ---
 
