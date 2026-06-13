@@ -9,7 +9,7 @@ Real-time appointment scheduling and front-of-house operations for service busin
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)
 ![Socket.io](https://img.shields.io/badge/Socket.io-realtime-010101?logo=socketdotio&logoColor=white)
 
-**Live demo:** _add your Render URL_ · **Source:** _add your GitHub URL_
+**Live demo:** _deploy the frontend, then paste its Render URL here_ · **Source:** https://github.com/yukthapriya/Frontdesk-Mini
 
 ---
 
@@ -149,7 +149,7 @@ npm run dev                   # http://localhost:4000
 **Frontend**
 
 ```bash
-cd frontend
+cd frontdesk-mini-frontend
 npm install
 ng serve                      # http://localhost:4200
 ```
@@ -189,7 +189,7 @@ These are deliberately out of scope for a focused build, listed in roughly the o
 │       ├── lib/availability.ts  # slot generation + conflict detection
 │       ├── routes/              # services, providers, availability, appointments
 │       └── seed.ts
-└── frontend/
+└── frontdesk-mini-frontend/
     └── src/app/
         ├── booking/             # multi-step reactive form
         ├── frontdesk/           # live operations board
